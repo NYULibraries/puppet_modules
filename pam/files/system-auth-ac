@@ -1,0 +1,21 @@
+#%PAM-1.0
+# This file is auto-generated.
+# User changes will be destroyed the next time authconfig is run.
+auth        sufficient    pam_unix.so   try_first_pass nullok
+auth        sufficient    pam_winbind.so  try_first_pass require_membership_of=Samba
+auth        required      pam_deny.so
+
+account     sufficient    pam_winbind.so  require_membership_of=Samba
+account     required      pam_unix.so
+
+password    required      pam_cracklib.so try_first_pass retry=3 type=
+password    sufficient    pam_unix.so nullok use_authtok md5 shadow
+password    sufficient    pam_winbind.so  use_authtok
+password    required      pam_deny.so
+
+session     required      pam_mkhomedir.so skel=/etc/skel/ umask=0022
+session     optional      pam_keyinit.so revoke
+session     required      pam_limits.so
+session     [success=1 default=ignore] pam_succeed_if.so service in crond quiet use_uid
+session     required      pam_unix.so
+

@@ -1,3 +1,4 @@
-class sshkeys{
+# Manage public keys
+class sshkeys {
   include sshkeys::config
 }
