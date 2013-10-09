@@ -11,6 +11,7 @@ class pam::config {
               group   => 'root',
               mode    => '0644',
               content => template('pam/system-auth-ac.erb'),  # Use file.erb to fill content of password-auth-ac file
+              require => Class['pam::install'],
           }
         }
 
@@ -22,6 +23,7 @@ class pam::config {
               group   => 'root',
               mode    => '0644',
               content => template('pam/password-auth-ac.erb'), # Use file.erb to fill content of password-auth-ac file
+              require => Class['pam::install'],
           }
         }
 
