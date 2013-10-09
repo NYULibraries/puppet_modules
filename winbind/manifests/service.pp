@@ -5,5 +5,6 @@ class winbind::service {
     hasstatus  => true,
     hasrestart => true,
     enable     => true,
+    require    => Class['winbind::install'],
   }
 }
