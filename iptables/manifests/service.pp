@@ -5,5 +5,6 @@ class iptables::service {
     hasstatus  => true,
     hasrestart => true,
     enable     => true,
+    require    => Class['iptables::install'],
   }
 }
