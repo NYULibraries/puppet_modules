@@ -6,6 +6,7 @@ class autofs::config {
       group  => 'root',
       mode   => '0644',
       source => "puppet://${puppetserver}/modules/autofs/auto.libits",
+      notify  => Class['autofs::service'],
   }
 
   file { 'automaster':  # Alias to path location
@@ -14,6 +15,8 @@ class autofs::config {
       group  => 'root',
       mode   => '0644',
       source => "puppet://${puppetserver}/modules/autofs/auto.master",
+      require => Class['autofs::install'],
+      notify  => Class['autofs::service'],
   }
 }
 

@@ -1,5 +1,5 @@
 # Manages automounter service/config
 class autofs{
-  include autofs::config, autofs::service
+  include autofs::install, autofs::config, autofs::service
 }
 
