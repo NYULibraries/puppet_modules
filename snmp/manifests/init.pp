@@ -1,5 +1,5 @@
 # module that transfers snmpd.conf file
 class snmp{
-  include snmp::config, snmp::service
+  include snmp::install, snmp::config, snmp::service
 }
 
