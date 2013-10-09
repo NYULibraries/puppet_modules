@@ -1,5 +1,5 @@
 # module that transfers ntp.conf file
 class ntp{
-  include ntp::config, ntp::service
+  include ntp::install, ntp::config, ntp::service
 }
 
