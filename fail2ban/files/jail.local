@@ -1,0 +1,16 @@
+[DEFAULT]
+
+ignoreip = 127.0.0.1
+bantime  = 600
+findtime  = 600
+maxretry = 3
+backend = auto
+
+[ssh-iptables]
+
+enabled  = true
+filter   = sshd
+action   = iptables[name=SSH, port=ssh, protocol=tcp]
+           sendmail-whois-lines[name=SSH, dest=systems@library.nyu.edu, sender=fail2ban@library.nyu.edu, logpath=/var/log/secure, servername=`hostname`]
+logpath  = /var/log/secure
+maxretry = 3

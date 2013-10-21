@@ -1,0 +1,42 @@
+[Definition]
+
+# Option:  actionstart
+# Notes.:  command executed once at the start of Fail2Ban.
+# Values:  CMD
+#
+actionstart = printf %%b "Subject: Fail2Ban: <name> jail started on <servername>
+              From: Fail2Ban Administrator <<sender>>
+              To: <dest>\n
+              The jail <name> has been started successfully on <servername>." | /usr/sbin/sendmail -f <sender> <dest>
+
+# Option:  actionstop
+# Notes.:  command executed once at the end of Fail2Ban
+# Values:  CMD
+#
+actionstop = printf %%b "Subject: Fail2Ban: <name> jail stopped on <servername>
+             From: Fail2Ban Administrator <<sender>>
+             To: <dest>\n
+             The jail <name> has been stopped on <servername>." | /usr/sbin/sendmail -f <sender> <dest>
+
+# Option:  actionban
+# Notes.:  command executed when banning an IP. Take care that the
+#          command is executed with Fail2Ban user rights.
+# Tags:    <ip>  IP address
+#          <failures>  number of failures
+#          <time>  unix timestamp of the ban time
+# Values:  CMD
+#
+actionban = printf %%b "Subject: Fail2Ban: <name> IP banned on <servername>
+            From: Fail2Ban Administrator <<sender>>
+            To: <dest>\n
+            Host server: <servername>
+            Banned IP: <ip>
+            Banned after <failures> unsuccessful login attempts against <name>.\n
+            ----------\n
+            <logpath> reports the following messages for <ip>:\n
+            `/bin/grep '\<<ip>\>' <logpath>`\n
+            ----------\n
+            Whois lookup information for <ip>:\n
+            `/usr/bin/whois <ip>`" | /usr/sbin/sendmail -f <sender> <dest>
+
+servername = default
