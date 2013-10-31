@@ -7,7 +7,7 @@ class sshkeys::config {
       mode   => '0700',
   }
 
-  file { 'ssh_public_key':  # Alias to path location
+  file { 'root_public_key':  # Alias to path location
       path   => '/root/.ssh/authorized_keys', # this is the location where the file will go on agent
       owner  => 'root',
       group  => 'root',
