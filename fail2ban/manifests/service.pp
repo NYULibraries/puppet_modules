@@ -5,6 +5,6 @@ class fail2ban::service {
     hasstatus  => true,
     hasrestart => true,
     enable     => true,
-    require    => Class[fail2ban::config],
+    #require    => Class[fail2ban::config],
   }
 }
