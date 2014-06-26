@@ -2,12 +2,12 @@
 class gmond::install {
   package{ 'ganglia-gmond': 
     ensure => present,
-    require => Class["yumrepo::config"],
+    require => Class["yumrepo::config", "gpgkeyimport::config"],
   }
 
   package{ 'ganglia-gmond-modules-python': 
     ensure => present,
-    require => Class["yumrepo::config"],
+    require => Class["yumrepo::config", "gpgkeyimport::config"],
   }
 }
 
