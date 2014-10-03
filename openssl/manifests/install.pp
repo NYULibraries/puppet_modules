@@ -6,7 +6,8 @@ class openssl::install {
   # Only for RHEL6.x
   if $operatingsystemmajrelease == '6' {
     package{ 'openssl': 
-      ensure => "1.0.1e-16.el6_5.7"
+      #ensure => "1.0.1e-16.el6_5.7"
+      ensure => "latest"
     }
   }
 }
