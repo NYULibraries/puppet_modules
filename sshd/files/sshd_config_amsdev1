@@ -130,9 +130,10 @@ Banner /etc/issue
 Subsystem	sftp	/usr/libexec/openssh/sftp-server
 
 # Example of overriding settings on a per-user basis
-#Match User anoncvs
+Match User ams
+	PasswordAuthentication no
 #	X11Forwarding no
 #	AllowTcpForwarding no
 #	ForceCommand cvs server
 
-DenyUsers ams
+#DenyUsers ams
