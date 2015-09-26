@@ -1,0 +1,10 @@
+[nyu-rhel5]
+name=NYU - Red Hat Enterprise Linux $releasever - $basearch - Source
+baseurl=http://nfs1.bobst.nyu.edu/kickstart/server/rhel5/custom/rpms/
+# enabled:
+# 0 = turned off
+# 1 = turned on
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+

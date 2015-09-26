@@ -1,0 +1,1 @@
+repo        -fstype=nfs             nfs1:/export/libITS/systems/repo

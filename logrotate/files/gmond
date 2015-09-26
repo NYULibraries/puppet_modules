@@ -1,0 +1,12 @@
+/var/log/gmond.log {
+	daily
+	missingok
+	rotate 1
+	compress
+	delaycompress
+	copytruncate
+	minsize 50M
+	notifempty
+	create 0644 root root
+}
+
